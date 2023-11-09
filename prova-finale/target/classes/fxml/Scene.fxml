@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<BorderPane prefHeight="786.0" prefWidth="1215.0" style="-fx-background-color: skyblue; -fx-border-radius: 5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.prova_finale.FXMLController">
+   <center>
+      <TabPane fx:id="tabPane1" prefHeight="654.0" prefWidth="842.0" style="-fx-background-color: khaki; -fx-border-color: grey;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+         <tabs>
+            <Tab text="Login">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lightblue;">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="262.0" layoutY="130.0" prefHeight="363.0" prefWidth="346.0" style="-fx-background-color: gold; -fx-border-radius: 50px;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="29.0" prefWidth="82.0" text="LOGIN " textAlignment="CENTER">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="msgLogin" text="Inserire le credenziali d'accesso" />
+                              <HBox alignment="CENTER" prefHeight="77.0" prefWidth="327.0">
+                                 <children>
+                                    <Label text="Username">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Dubai Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="usernameInput" prefHeight="26.0" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="37.0" prefWidth="277.0">
+                                 <children>
+                                    <Label text="Password">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Dubai Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="pwdInput" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="67.0" prefWidth="327.0">
+                                 <children>
+                                    <Button fx:id="inputLogin" mnemonicParsing="false" onAction="#handleLogin" prefHeight="26.0" prefWidth="224.0" text="Autenticami" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="cancelLogin" alignment="CENTER" mnemonicParsing="false" onAction="#handleReset" prefHeight="26.0" prefWidth="226.0" text="Annulla" />
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabSelezione" disable="true" text="Consulta il Catalogo">
+               <content>
+                  <AnchorPane prefHeight="623.0" prefWidth="731.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutY="-2.0" prefHeight="599.0" prefWidth="872.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="143.0" prefWidth="698.0">
+                                 <children>
+                                    <VBox>
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <Label text="Livello di difficoltà">
+                                                   <HBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <ComboBox fx:id="livello" prefWidth="150.0">
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" top="7.0" />
+                                                   </HBox.margin>
+                                                </ComboBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="15.0" top="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox>
+                                             <children>
+                                                <Label text="Materia">
+                                                   <HBox.margin>
+                                                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <ComboBox fx:id="cmbMateria1" prefWidth="150.0">
+                                                   <HBox.margin>
+                                                      <Insets left="55.0" top="7.0" />
+                                                   </HBox.margin>
+                                                </ComboBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="15.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                             <children>
+                                                <TextFlow prefHeight="100.0" prefWidth="286.0">
+                                                   <children>
+                                                      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="285.0">
+                                                         <children>
+                                                            <Label text="Ricerca:">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="10.0" left="25.0" right="5.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <TextField fx:id="txtSearch">
+                                                               <HBox.margin>
+                                                                  <Insets left="55.0" />
+                                                               </HBox.margin>
+                                                            </TextField>
+                                                         </children>
+                                                      </HBox>
+                                                   </children></TextFlow>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="143.0" prefWidth="464.0">
+                                       <children>
+                                          <HBox>
+                                             <children>
+                                                <Label text="Costo massimo:">
+                                                   <HBox.margin>
+                                                      <Insets bottom="10.0" left="22.0" right="10.0" top="10.0" />
+                                                   </HBox.margin>
+                                                </Label>
+                                                <Slider fx:id="costo" blockIncrement="0.01" majorTickUnit="0.25" max="1.0" maxWidth="315.0" minorTickCount="10" prefHeight="38.0" prefWidth="315.0" showTickLabels="true" showTickMarks="true" value="1.0">
+                                                   <HBox.margin>
+                                                      <Insets top="12.0" />
+                                                   </HBox.margin>
+                                                </Slider>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="12.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <Button fx:id="btnResetFiltri" mnemonicParsing="false" onAction="#doResetFiltri" text="Reset Filtri">
+                                             <VBox.margin>
+                                                <Insets left="222.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button fx:id="btnConsulta" mnemonicParsing="false" onAction="#handleLoadData" text="Consulta il Catalogo">
+                                             <VBox.margin>
+                                                <Insets left="172.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets top="10.0" />
+                                       </opaqueInsets>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Label text="Catalogo Corsi">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="222.0" prefWidth="739.0">
+                                 <children>
+                                    <TableView fx:id="tabellaS" prefHeight="213.0" prefWidth="844.0">
+                                      <columns>
+                                        <TableColumn fx:id="colNome" prefWidth="210.39998930692673" text="Nome Corso" />
+                                        <TableColumn fx:id="colDurata" prefWidth="90.40003967285156" text="Durata" />
+                                          <TableColumn fx:id="colRating" prefWidth="75.0" text="Rating" />
+                                          <TableColumn fx:id="colMateria" prefWidth="98.39996337890625" text="Materia" />
+                                          <TableColumn fx:id="colPrezzo" prefWidth="77.60003662109375" text="Prezzo" />
+                                          <TableColumn fx:id="colLivello" prefWidth="149.59991455078125" text="Livello" />
+                                      </columns>
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="15.0" right="10.0" top="5.0" />
+                                       </HBox.margin>
+                                    </TableView>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="12.0" prefWidth="730.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="279.0" text="Wishlist">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="btnAggiungi" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" layoutX="100.0" mnemonicParsing="false" onAction="#handleAggiungi" prefHeight="26.0" prefWidth="165.0" text="Aggiungi alla lista +">
+                                       <HBox.margin>
+                                          <Insets bottom="5.0" left="10.0" right="15.0" top="5.0" />
+                                       </HBox.margin></Button>
+                                 </children>
+                              </HBox>
+                              <TableView fx:id="tabellaWishlist" prefHeight="148.0" prefWidth="660.0">
+                                 <columns>
+                                    <TableColumn fx:id="colNome1" prefWidth="195.19997709989548" text="Nome Corso" />
+                                    <TableColumn fx:id="colDurata1" prefWidth="106.40003967285156" text="Durata" />
+                                    <TableColumn fx:id="colRating1" prefWidth="75.0" text="Rating" />
+                                    <TableColumn fx:id="colMateria1" prefWidth="98.39996337890625" text="Materia" />
+                                    <TableColumn fx:id="colPrezzo1" prefWidth="77.60003662109375" text="Prezzo" />
+                                    <TableColumn fx:id="colLivello1" prefWidth="150.39997558593745" text="Livello" />
+                                 </columns>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="15.0" right="10.0" top="5.0" />
+                                 </VBox.margin>
+                              </TableView>
+                           </children>
+                        </VBox>
+                        <Label fx:id="msgAcquista" layoutX="70.0" layoutY="598.0" text="La tua wishlist è vuota" />
+                        <Button fx:id="btnRimuovi" layoutX="508.0" layoutY="594.0" mnemonicParsing="false" onAction="#handleRimuovi" text="Rimuovi Corso" />
+                        <Button fx:id="btnAcquista" alignment="CENTER" layoutX="612.0" layoutY="593.0" mnemonicParsing="false" onAction="#handleAcquisto" prefHeight="26.0" prefWidth="82.0" text="Acquista" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabPiano" disable="true" text="Genera il tuo Piano Formativo">
+               <content>
+                  <AnchorPane prefHeight="626.0" prefWidth="814.0">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="1.0" prefHeight="626.0" prefWidth="870.0">
+                           <children>
+                              <VBox prefHeight="159.0" prefWidth="722.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="132.0" prefWidth="727.0">
+                                       <children>
+                                          <HBox prefHeight="154.0" prefWidth="802.0">
+                                             <children>
+                                                <VBox prefHeight="154.0" prefWidth="319.0">
+                                                   <children>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label text="Livello di difficoltà">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <ComboBox fx:id="livello1" prefWidth="150.0">
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" top="7.0" />
+                                                               </HBox.margin>
+                                                            </ComboBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="15.0" top="15.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <HBox>
+                                                         <children>
+                                                            <Label text="Materia">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <ComboBox fx:id="cmbMateria11" prefWidth="150.0">
+                                                               <HBox.margin>
+                                                                  <Insets left="55.0" top="7.0" />
+                                                               </HBox.margin>
+                                                            </ComboBox>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets left="15.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <HBox prefHeight="100.0" prefWidth="200.0">
+                                                         <children>
+                                                            <TextFlow prefHeight="100.0" prefWidth="286.0">
+                                                               <children>
+                                                                  <HBox alignment="CENTER" prefHeight="40.0" prefWidth="285.0">
+                                                                     <children>
+                                                                        <Label text="Ricerca:">
+                                                                           <HBox.margin>
+                                                                              <Insets bottom="10.0" left="25.0" right="5.0" top="10.0" />
+                                                                           </HBox.margin>
+                                                                        </Label>
+                                                                        <TextField fx:id="txtSearch1">
+                                                                           <HBox.margin>
+                                                                              <Insets left="55.0" />
+                                                                           </HBox.margin>
+                                                                        </TextField>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </TextFlow>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="154.0" prefWidth="442.0">
+                                                   <children>
+                                                      <HBox prefHeight="50.0" prefWidth="418.0">
+                                                         <children>
+                                                            <Label text="Costo massimo:">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="10.0" left="22.0" right="10.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Slider fx:id="costo1" blockIncrement="0.01" majorTickUnit="0.25" max="1.0" maxWidth="314.0" minorTickCount="10" prefHeight="38.0" prefWidth="314.0" showTickLabels="true" showTickMarks="true" value="1.0">
+                                                               <HBox.margin>
+                                                                  <Insets top="12.0" />
+                                                               </HBox.margin>
+                                                            </Slider>
+                                                         </children>
+                                                         <VBox.margin>
+                                                            <Insets top="12.0" />
+                                                         </VBox.margin>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="32.0" prefWidth="410.0">
+                                                         <children>
+                                                            <Label text="Quante ore giornaliere?">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Spinner fx:id="spnOre" editable="true">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Spinner>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox alignment="CENTER" prefHeight="34.0" prefWidth="410.0">
+                                                         <children>
+                                                            <Label text="Quanti giorni?">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                            <Spinner fx:id="spnGiorni" editable="true">
+                                                               <HBox.margin>
+                                                                  <Insets bottom="10.0" left="70.0" right="10.0" top="10.0" />
+                                                               </HBox.margin>
+                                                            </Spinner>
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <HBox />
+                              <HBox alignment="CENTER" prefHeight="147.0" prefWidth="722.0">
+                                 <children>
+                                    <VBox prefHeight="108.0" prefWidth="439.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="405.0" text="Ordina i parametri da massimizzare secondo la tua gerarchia di preferenza:" />
+										    <ListView fx:id="listViewParameters" editable="true" prefHeight="80.0" prefWidth="408.0" /> 
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="129.0" prefWidth="128.0">
+                                       <children>
+                                          <Button fx:id="btnPiu" mnemonicParsing="false" onAction="#handlePiu" prefHeight="26.0" prefWidth="105.0" text="Più importante">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                          <Button fx:id="btnMeno" mnemonicParsing="false" onAction="#handleMeno" text="Meno importante" />
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="129.0" prefWidth="230.0">
+                                       <children>
+                                          <Label fx:id="msgPiano">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Button fx:id="btnGenera" alignment="CENTER" mnemonicParsing="false" onAction="#handleGenera" text="Genera Piano Fornativo">
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                          </Button>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <Label text="Piano Formativo Personalizzato">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="tabellaS1" prefHeight="178.0" prefWidth="850.0">
+                                 <columns>
+                                    <TableColumn fx:id="colNome2" prefWidth="210.39998930692673" text="Nome Corso" />
+                                    <TableColumn fx:id="colDurata2" prefWidth="90.40003967285156" text="Durata" />
+                                    <TableColumn fx:id="colRating2" prefWidth="75.0" text="Rating" />
+                                    <TableColumn fx:id="colMateria2" prefWidth="98.39996337890625" text="Materia" />
+                                    <TableColumn fx:id="colPrezzo2" prefWidth="83.99996948242188" text="Prezzo" />
+                                    <TableColumn fx:id="colLivello2" prefWidth="193.5999755859375" text="Livello" />
+                                 </columns>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </TableView>
+                              <HBox alignment="CENTER" prefHeight="26.0" prefWidth="654.0">
+                                 <children>
+                                    <Label alignment="BASELINE_LEFT" text="Info:">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="500.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <Button fx:id="btnAcquista1" alignment="CENTER" mnemonicParsing="false" onAction="#handleAcquistoPiano" prefHeight="26.0" prefWidth="121.0" text="Acquista" />
+                                 </children></HBox>
+                              <TextArea fx:id="txtSimulazione" prefHeight="115.0" prefWidth="702.0">
+                                 <padding>
+                                    <Insets left="5.0" right="5.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Registrazione di un nuovo utente">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="625.0" prefWidth="804.0" style="-fx-background-color: lightblue;">
+                     <children>
+                        <VBox alignment="CENTER" layoutX="262.0" layoutY="47.0" prefHeight="530.0" prefWidth="347.0" style="-fx-background-color: gold; -fx-border-radius: 50px;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="44.0" prefWidth="238.0" text="REGISTRAZIONE" textAlignment="CENTER">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Segoe UI Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="msgLogin1" text="Inserire le credenziali d'accesso" />
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="104.0" prefHeight="37.0" prefWidth="277.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="119.0" text="Nome">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Dubai Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="inputNome" prefHeight="26.0" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="200.0" prefHeight="37.0" prefWidth="277.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="119.0" text="Cognome">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Dubai Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="inputCognome" prefHeight="26.0" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="177.0" prefHeight="37.0" prefWidth="277.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="119.0" text="Budget">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Dubai Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="spnRegistrazione" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="77.0" prefWidth="327.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="118.0" text="Nuovo Username">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Dubai Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="usernameRegistrazione" prefHeight="26.0" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="37.0" prefWidth="277.0">
+                                 <children>
+                                    <Label prefHeight="26.0" prefWidth="119.0" text="Nuova Password">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Dubai Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="passwordRegistrazione" prefHeight="26.0" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="192.0" prefHeight="37.0" prefWidth="277.0">
+                                 <children>
+                                    <Label text="Conferma Password">
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Dubai Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="passwordConferma" prefHeight="26.0" prefWidth="150.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="67.0" prefWidth="327.0">
+                                 <children>
+                                    <Button fx:id="btnRegistrami" mnemonicParsing="false" onAction="#doRegistrami" prefHeight="26.0" prefWidth="224.0" text="Registrami" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="cancelRegistrami" alignment="CENTER" mnemonicParsing="false" onAction="#handleReset1" prefHeight="26.0" prefWidth="226.0" text="Annulla" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <HBox alignment="CENTER" prefHeight="84.0" prefWidth="982.0" style="-fx-background-color: skyblue;" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <ImageView fx:id="imgLogo" fitHeight="81.0" fitWidth="81.0">
+               <image>
+                  <Image url="@../icons/Remote.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </HBox.margin>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
+            <Label alignment="CENTER" prefHeight="67.0" prefWidth="486.0" text="JAVAFX REMOTE LEARNING" textFill="GOLD">
+               <font>
+                  <Font name="Dubai Bold" size="38.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </Label>
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <right>
+      <VBox prefHeight="654.0" prefWidth="342.0" style="-fx-background-color: gold;" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="65.0" prefWidth="198.0">
+               <children>
+                  <VBox prefHeight="99.0" prefWidth="176.0">
+                     <children>
+                        <Label text="Dati Utente">
+                           <font>
+                              <Font name="Segoe UI Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="15.0" prefWidth="51.0" text="Nome:">
+                                 <font>
+                                    <Font name="Segoe UI Bold Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="txtNome" text="NA">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="15.0" prefWidth="54.0" text="Budget:">
+                                 <font>
+                                    <Font name="Segoe UI Bold Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="txtBudget" prefHeight="18.0" prefWidth="62.0" text="\$">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font></Label>
+                           </children>
+                        </HBox>
+                        <Button fx:id="btnLogout" alignment="BASELINE_RIGHT" disable="true" mnemonicParsing="false" onAction="#handleLogout" text="LOGOUT" textAlignment="RIGHT">
+                           <opaqueInsets>
+                              <Insets left="50.0" />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <ImageView fx:id="imgUser" fitHeight="63.0" fitWidth="74.0">
+                     <image>
+                        <Image url="@../icons/User_icon_2.svg.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <ListView fx:id="listaCorsiUtente" prefHeight="295.0" prefWidth="250.0" />
+            <TabPane prefHeight="323.0" prefWidth="324.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Livelli">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <PieChart fx:id="pieLivelli" layoutX="-1.0" prefHeight="262.0" prefWidth="343.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Materie">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <PieChart fx:id="pieMaterie" layoutX="1.0" prefHeight="262.0" prefWidth="340.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Fasce di prezzo">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="250.0">
+                           <children>
+                              <PieChart fx:id="piePrezzo" layoutX="-1.0" layoutY="-1.0" prefHeight="266.0" prefWidth="342.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </right>
+   <bottom>
+      <Pane prefHeight="34.0" prefWidth="982.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
